@@ -7,22 +7,24 @@
   <meta name="description" content="Higher Calling Ministries Center of Hope Church - Zuni, VA. Sunday Worship 10:00 a.m. • Tuesday Bible Study 7:00 p.m.">
   <style>
     :root{
-      --primary:#4a2c6d;   /* deep purple */
-      --accent:#b91c1c;    /* red */
-      --cream:#f8f1e7;     /* ivory */
-      --ink:#222;          /* near-black */
+      --primary:#4a2c6d;   /* deep purple accent */
+      --accent:#b91c1c;    /* brand red */
+      --cream:#f8f1e7;     /* ivory background */
+      --ink:#222;          /* near-black text */
       --gold:#c9a552;      /* gold accent */
     }
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: Georgia, serif;
+      font-family: Georgia, serif;     /* requested font */
       color:var(--ink);
       background:var(--cream);
       line-height:1.5;
     }
     a{color:var(--primary);text-decoration:none}
     img{max-width:100%;height:auto;display:block}
+
+    /* Header */
     header{
       position:relative;
       background: linear-gradient(135deg, var(--primary), #2f1c45);
@@ -36,40 +38,67 @@
     .brand small{opacity:.9}
     nav{margin-left:auto}
     nav a{color:#fff;margin-left:14px;font-weight:bold}
+
     /* Hero */
-    .hero{padding:28px 16px 8px;background:radial-gradient(1200px 400px at 20% -200px, rgba(185,28,28,.08), transparent 60%);}
+    .hero{
+      padding:28px 16px 8px;
+      background:
+        radial-gradient(1200px 400px at 20% -200px, rgba(185,28,28,.08), transparent 60%),
+        radial-gradient(800px 300px at 120% -60px, rgba(201,165,82,.12), transparent 60%);
+    }
     .hero .inner{max-width:1100px;margin:0 auto}
     .hero h2{margin:0 0 8px 0;color:var(--primary);font-size:28px}
     .hero p.lead{margin:6px 0 14px 0;font-size:18px}
     .hero .contact{font-size:14px;color:#333}
     .cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
-    .btn{background:var(--accent);color:#fff;border:none;padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:bold;}
+    .btn{
+      background:var(--accent);color:#fff;border:none;padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:bold;
+      box-shadow:0 3px 10px rgba(0,0,0,.08);
+    }
     .btn.alt{background:var(--gold);color:#222}
+
+    /* Sections */
     section{max-width:1100px;margin:28px auto;padding:0 16px}
     .card{background:#fff;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.06);padding:20px;margin-bottom:20px}
     h3.sec{margin:0 0 8px 0;color:var(--primary);font-size:24px;border-left:6px solid var(--gold);padding-left:10px}
+
     /* Pastors */
     .pastors{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}
     .pastors .names p{margin:6px 0}
+
     /* Services */
     .services ul{margin:0;padding-left:18px}
+
     /* Gallery */
     .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
     .gallery img{border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+
     /* Connect */
     .connect-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
     .connect-card{background:#fff;border-radius:10px;border:2px solid #f0e6d5;padding:16px;box-shadow:0 6px 16px rgba(0,0,0,.05)}
     .connect-card h4{margin:0 0 6px 0;color:var(--primary)}
     .connect-card button{margin-top:8px}
+
     /* Contact + Officials */
     .split2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
     .list-plain{margin:0;padding-left:18px}
+
     /* Footer */
     footer{background:#111;color:#ddd;padding:30px 16px;margin-top:28px}
     footer .wrap{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:center}
     .footer-logo{display:flex;align-items:center;gap:10px}
     .rights{font-size:13px;color:#bbb}
     .social a{display:inline-flex;align-items:center;gap:6px;background:#222;border:1px solid #333;padding:8px 10px;border-radius:8px;color:#fff}
+
+    /* Modal */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;padding:16px;z-index:50}
+    .modal .panel{background:#fff;max-width:520px;width:100%;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.2);padding:18px}
+    .panel h4{margin:0 0 10px 0;color:var(--primary)}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    label{font-size:14px}
+    input,textarea{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;font-family:Georgia,serif}
+    textarea{min-height:100px}
+
     @media (max-width:860px){
       .pastors{grid-template-columns:1fr}
       .split2{grid-template-columns:1fr}
@@ -82,6 +111,7 @@
 <header>
   <div class="topbar">
     <div class="logo">
+      <!-- Make sure this file exists in the repo root with this exact name -->
       <img src="church-logo.png" alt="Higher Calling Ministries Logo" />
     </div>
     <div class="brand">
@@ -105,8 +135,9 @@
     <h2>“I press toward the mark…” — Philippians 3:14</h2>
     <p class="lead">We welcome everyone—reflecting the beauty of the Lord's house, with a heart for our communities.</p>
     <div class="cta-row">
-      <a class="btn" href="#give">Give Now</a>
-      <a class="btn alt" href="#visit">Plan a Visit</a>
+      <!-- Working buttons -->
+      <a class="btn" href="https://giv.li/zr0orj" target="_blank" rel="noopener">Give Now</a>
+      <button class="btn alt" type="button" onclick="openForm('Visit')">Plan a Visit</button>
     </div>
     <p class="contact">Sunday Worship Experience • 10:00 a.m. | Bible Study • Tuesdays 7:00 p.m.</p>
   </div>
@@ -127,6 +158,7 @@
       <p><strong>Executive Pastor:</strong> Barbara W. Alexander</p>
     </div>
     <div>
+      <!-- Pastors’ photo appears beside their names -->
       <img src="pastors-black-silver.jpg" alt="Senior Pastor James W. Alexander Jr. & Executive Pastor Barbara W. Alexander">
     </div>
   </div>
@@ -167,10 +199,26 @@
     <h3 class="sec">Connect With Us</h3>
     <p>Select a next step and send your info. We’ll follow up soon.</p>
     <div class="connect-grid">
-      <div class="connect-card"><h4>Join</h4><p>Become a member of HCM Center of Hope.</p><button class="btn" onclick="openForm('Join')">Open Form</button></div>
-      <div class="connect-card"><h4>Partner</h4><p>Serve with us in ministry and mission.</p><button class="btn" onclick="openForm('Partner')">Open Form</button></div>
-      <div class="connect-card"><h4>Baptism</h4><p>Take your next step in faith through baptism.</p><button class="btn" onclick="openForm('Baptism')">Open Form</button></div>
-      <div class="connect-card"><h4>Volunteer</h4><p>Use your gifts to bless our church and community.</p><button class="btn" onclick="openForm('Volunteer')">Open Form</button></div>
+      <div class="connect-card">
+        <h4>Join</h4>
+        <p>Become a member of HCM Center of Hope.</p>
+        <button class="btn" type="button" onclick="openForm('Join')">Open Form</button>
+      </div>
+      <div class="connect-card">
+        <h4>Partner</h4>
+        <p>Serve with us in ministry and mission.</p>
+        <button class="btn" type="button" onclick="openForm('Partner')">Open Form</button>
+      </div>
+      <div class="connect-card">
+        <h4>Baptism</h4>
+        <p>Take your next step in faith through baptism.</p>
+        <button class="btn" type="button" onclick="openForm('Baptism')">Open Form</button>
+      </div>
+      <div class="connect-card">
+        <h4>Volunteer</h4>
+        <p>Use your gifts to bless our church and community.</p>
+        <button class="btn" type="button" onclick="openForm('Volunteer')">Open Form</button>
+      </div>
     </div>
   </div>
 </section>
@@ -224,19 +272,34 @@
   </div>
 </footer>
 
-<!-- Modal -->
-<div id="formModal" class="modal" style="display:none">
+<!-- Modal for Connect/Visit -->
+<div id="formModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="formTitle">
   <div class="panel">
     <h4 id="formTitle">Connect Form</h4>
     <div class="grid2">
-      <input id="firstName" placeholder="First Name">
-      <input id="lastName" placeholder="Last Name">
-      <input id="email" type="email" placeholder="Email">
-      <input id="phone" type="tel" placeholder="Phone">
+      <div>
+        <label>First Name</label>
+        <input id="firstName" type="text" placeholder="First name">
+      </div>
+      <div>
+        <label>Last Name</label>
+        <input id="lastName" type="text" placeholder="Last name">
+      </div>
+      <div>
+        <label>Email</label>
+        <input id="email" type="email" placeholder="you@example.com">
+      </div>
+      <div>
+        <label>Phone</label>
+        <input id="phone" type="tel" placeholder="(###) ###-####">
+      </div>
     </div>
-    <textarea id="notes" placeholder="Prayer Request / Notes"></textarea>
-    <button onclick="closeForm()">Cancel</button>
-    <button onclick="sendForm()">Send</button>
+    <label style="margin-top:10px;display:block">Prayer Request / Notes (optional)</label>
+    <textarea id="notes" placeholder="How can we pray for you?"></textarea>
+    <div class="actions" style="display:flex;justify-content:flex-end;gap:10px;margin-top:10px">
+      <button class="btn alt" type="button" onclick="closeForm()">Cancel</button>
+      <button class="btn" type="button" onclick="sendForm()">Send</button>
+    </div>
   </div>
 </div>
 
@@ -244,24 +307,35 @@
   let currentFormType = "Connect";
   function openForm(type){
     currentFormType = type || "Connect";
-    document.getElementById('formTitle').textContent = type + " Form";
-    document.getElementById('formModal').style.display = "block";
+    document.getElementById('formTitle').textContent = currentFormType + " Form";
+    document.getElementById('formModal').style.display = "flex";
   }
   function closeForm(){
     document.getElementById('formModal').style.display = "none";
   }
   function sendForm(){
+    const fn = encodeURIComponent(document.getElementById('firstName').value.trim());
+    const ln = encodeURIComponent(document.getElementById('lastName').value.trim());
+    const em = encodeURIComponent(document.getElementById('email').value.trim());
+    const ph = encodeURIComponent(document.getElementById('phone').value.trim());
+    const nt = encodeURIComponent(document.getElementById('notes').value.trim());
+
     const subject = encodeURIComponent(currentFormType + " – HCM Center of Hope");
     const body = encodeURIComponent(
-      "First Name: " + document.getElementById('firstName').value + "%0D%0A" +
-      "Last Name: " + document.getElementById('lastName').value + "%0D%0A" +
-      "Email: " + document.getElementById('email').value + "%0D%0A" +
-      "Phone: " + document.getElementById('phone').value + "%0D%0A%0D%0A" +
-      "Notes:%0D%0A" + document.getElementById('notes').value
+      "First Name: " + decodeURIComponent(fn) + "%0D%0A" +
+      "Last Name: " + decodeURIComponent(ln) + "%0D%0A" +
+      "Email: " + decodeURIComponent(em) + "%0D%0A" +
+      "Phone: " + decodeURIComponent(ph) + "%0D%0A%0D%0A" +
+      "Notes / Prayer Request:%0D%0A" + decodeURIComponent(nt)
     );
+
     window.location.href = "mailto:hcmcenterofhope@gmail.com?subject="+subject+"&body="+body;
     closeForm();
   }
+  // Close when clicking the dark backdrop
+  document.getElementById('formModal').addEventListener('click', (e)=>{
+    if(e.target.id==='formModal') closeForm();
+  });
 </script>
 
 </body>
